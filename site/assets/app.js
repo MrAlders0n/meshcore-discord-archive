@@ -19,6 +19,7 @@ const $threadModalList = el("thread-modal-list");
 const $threadModalCount = el("thread-modal-count");
 
 const SIDEBAR_TOP_N = 10;
+const CHANNEL_TOP_N = 3;
 
 const state = {
   threads: [],
@@ -91,19 +92,32 @@ function renderSidebar(threads) {
 
   const frag = document.createDocumentFragment();
   for (const [forum, list] of byForum) {
-    const sorted = list.slice().sort(byLastMsgDesc);
-    const topN = sorted.slice(0, SIDEBAR_TOP_N);
-    const hasMore = sorted.length > SIDEBAR_TOP_N;
-
     const group = document.createElement("div");
     group.className = "forum-group";
     group.dataset.forum = forum;
+
+    const channelMains = new Map();
+    const channelChildren = new Map();
+    const loose = [];
+    for (const t of list) {
+      if (t.is_channel_main && t.channel) {
+        channelMains.set(t.channel, t);
+      } else if (t.channel) {
+        if (!channelChildren.has(t.channel)) channelChildren.set(t.channel, []);
+        channelChildren.get(t.channel).push(t);
+      } else {
+        loose.push(t);
+      }
+    }
+
+    const sortedLoose = loose.slice().sort(byLastMsgDesc);
+    const totalCount = list.length;
 
     const header = document.createElement("button");
     header.type = "button";
     header.className = "forum-header";
     header.dataset.forum = forum;
-    header.title = `Browse all ${sorted.length} threads in ${forum}`;
+    header.title = `Browse all ${sortedLoose.length || totalCount} threads in ${forum}`;
 
     const hName = document.createElement("span");
     hName.className = "forum-header-name";
@@ -111,18 +125,33 @@ function renderSidebar(threads) {
 
     const hCount = document.createElement("span");
     hCount.className = "forum-header-count";
-    hCount.textContent = sorted.length;
+    hCount.textContent = totalCount;
 
     header.appendChild(hName);
     header.appendChild(hCount);
     header.addEventListener("click", () => openThreadModal(forum));
     group.appendChild(header);
 
+    const sortedChannels = Array.from(channelMains.entries()).sort((a, b) => {
+      const aKids = channelChildren.get(a[0]) || [];
+      const bKids = channelChildren.get(b[0]) || [];
+      const aRecent = aKids.slice().sort(byLastMsgDesc)[0] || a[1];
+      const bRecent = bKids.slice().sort(byLastMsgDesc)[0] || b[1];
+      return byLastMsgDesc(aRecent, bRecent);
+    });
+
+    for (const [channel, main] of sortedChannels) {
+      group.appendChild(renderChannelBlock(forum, channel, main, channelChildren.get(channel) || []));
+    }
+
+    const topN = sortedLoose.slice(0, SIDEBAR_TOP_N);
+    const hasMore = sortedLoose.length > SIDEBAR_TOP_N;
+
     for (const t of topN) {
       group.appendChild(renderThreadLink(t));
     }
 
-    for (const t of sorted.slice(SIDEBAR_TOP_N)) {
+    for (const t of sortedLoose.slice(SIDEBAR_TOP_N)) {
       const a = renderThreadLink(t);
       a.classList.add("thread-link-extra");
       a.style.display = "none";
@@ -134,7 +163,7 @@ function renderSidebar(threads) {
       more.type = "button";
       more.className = "forum-more";
       more.dataset.forum = forum;
-      more.textContent = `Show all ${sorted.length} threads…`;
+      more.textContent = `Show all ${sortedLoose.length} threads…`;
       more.addEventListener("click", () => openThreadModal(forum));
       group.appendChild(more);
     }
@@ -143,6 +172,55 @@ function renderSidebar(threads) {
   }
   while ($threadNav.firstChild) $threadNav.removeChild($threadNav.firstChild);
   $threadNav.appendChild(frag);
+}
+
+function renderChannelBlock(forum, channel, main, children) {
+  const block = document.createElement("div");
+  block.className = "channel-block";
+  block.dataset.channel = channel;
+
+  const headerLink = renderThreadLink(main);
+  headerLink.classList.add("channel-header");
+  const badge = document.createElement("span");
+  badge.className = "channel-child-count";
+  badge.textContent = children.length;
+  badge.title = `${children.length} thread${children.length === 1 ? "" : "s"}`;
+  const existingCount = headerLink.querySelector(".count");
+  if (existingCount) headerLink.removeChild(existingCount);
+  headerLink.appendChild(badge);
+  const title = headerLink.querySelector(".title");
+  if (title) title.textContent = `# ${channel}`;
+  block.appendChild(headerLink);
+
+  if (children.length === 0) return block;
+
+  const threadWrap = document.createElement("div");
+  threadWrap.className = "channel-threads";
+
+  const sorted = children.slice().sort(byLastMsgDesc);
+  const top = sorted.slice(0, CHANNEL_TOP_N);
+  for (const t of top) threadWrap.appendChild(renderThreadLink(t));
+
+  for (const t of sorted.slice(CHANNEL_TOP_N)) {
+    const a = renderThreadLink(t);
+    a.classList.add("thread-link-extra");
+    a.style.display = "none";
+    threadWrap.appendChild(a);
+  }
+
+  if (sorted.length > CHANNEL_TOP_N) {
+    const more = document.createElement("button");
+    more.type = "button";
+    more.className = "forum-more channel-more";
+    more.dataset.forum = forum;
+    more.dataset.channel = channel;
+    more.textContent = `${sorted.length - CHANNEL_TOP_N} more threads…`;
+    more.addEventListener("click", () => openChannelModal(forum, channel));
+    threadWrap.appendChild(more);
+  }
+
+  block.appendChild(threadWrap);
+  return block;
 }
 
 function byLastMsgDesc(a, b) {
@@ -179,6 +257,21 @@ function openThreadModal(forum) {
   const threads = state.threads.filter((t) => t.forum === forum).sort(byLastMsgDesc);
   $threadModalTitle.textContent = `# ${forum}`;
   $threadModal.dataset.forum = forum;
+  delete $threadModal.dataset.channel;
+  $threadModalFilter.value = "";
+  renderModalList(threads, "");
+  $threadModal.hidden = false;
+  document.body.classList.add("modal-open");
+  setTimeout(() => $threadModalFilter.focus(), 0);
+}
+
+function openChannelModal(forum, channel) {
+  const threads = state.threads
+    .filter((t) => t.forum === forum && t.channel === channel && !t.is_channel_main)
+    .sort(byLastMsgDesc);
+  $threadModalTitle.textContent = `# ${channel}`;
+  $threadModal.dataset.forum = forum;
+  $threadModal.dataset.channel = channel;
   $threadModalFilter.value = "";
   renderModalList(threads, "");
   $threadModal.hidden = false;
@@ -215,7 +308,10 @@ function renderModalList(threads, query) {
 $threadModalFilter.addEventListener("input", () => {
   const forum = $threadModal.dataset.forum;
   if (!forum) return;
-  const threads = state.threads.filter((t) => t.forum === forum).sort(byLastMsgDesc);
+  const channel = $threadModal.dataset.channel;
+  const threads = state.threads
+    .filter((t) => t.forum === forum && (channel ? t.channel === channel && !t.is_channel_main : true))
+    .sort(byLastMsgDesc);
   renderModalList(threads, $threadModalFilter.value);
 });
 
@@ -304,7 +400,7 @@ $threadFilter.addEventListener("input", () => {
       a.style.display = a.dataset.search.includes(q) ? "" : "none";
     }
   });
-  document.querySelectorAll("#thread-nav .forum-more").forEach((btn) => {
+  document.querySelectorAll("#thread-nav .forum-more, #thread-nav .channel-more").forEach((btn) => {
     btn.style.display = q ? "none" : "";
   });
   document.querySelectorAll("#thread-nav .forum-group").forEach((g) => {

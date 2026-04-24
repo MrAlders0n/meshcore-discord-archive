@@ -153,6 +153,27 @@ body {
   padding: 2px 6px;
 }
 
+.channel-block { margin: 2px 0; }
+.channel-header.thread-link {
+  color: #dbdee1;
+  font-weight: 600;
+}
+.channel-header .title { color: inherit; }
+.channel-child-count {
+  color: #80848e;
+  font-size: 11px;
+  background: #1e1f22;
+  border-radius: 10px;
+  padding: 2px 6px;
+}
+.channel-threads {
+  margin: 0 6px 4px 14px;
+  padding-left: 8px;
+  border-left: 1px solid #2e2f34;
+}
+.channel-threads .thread-link { margin-left: 0; margin-right: 0; }
+.channel-more { margin-left: 0; }
+
 .sidebar-footer {
   padding: 8px 14px;
   font-size: 11px;

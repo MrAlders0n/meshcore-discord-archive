@@ -250,16 +250,17 @@ _PREAMBLE_ENTRIES_RE = re.compile(
 )
 
 
-def parse_thread(file_path: Path, forum_hint: str) -> dict:
+def parse_thread(file_path: Path, forum_hint: str, channel_hint: str | None = None) -> dict:
     raw = file_path.read_text(encoding="utf-8", errors="replace")
     entries = _PREAMBLE_ENTRIES_RE.findall(raw)
     guild = html.unescape(entries[0]).strip() if entries else ""
     crumb = html.unescape(entries[1]).strip() if len(entries) > 1 else ""
-    # crumb looks like "📚 Forums / <forum> / <title>", but title may contain " / "
-    # so use the folder name as the forum and take everything after it as title.
+    # crumb looks like "📚 Forums / <forum> / <title>" or, for a sub-thread of a
+    # channel, "💬 <forum> / <channel> / <title>". Titles can contain " / ", so
+    # anchor on the known folder name(s) and take the remainder as the title.
     forum = forum_hint
     title = ""
-    marker = f" / {forum} / "
+    marker = f" / {forum} / {channel_hint} / " if channel_hint else f" / {forum} / "
     idx = crumb.find(marker)
     if idx >= 0:
         title = crumb[idx + len(marker):].strip()
@@ -316,70 +317,82 @@ def main() -> int:
     flat_messages: list[dict] = []
 
     # Layout: MeshCore/<forum>/<thread>.html — MeshCore is the guild.
+    # When a top-level <name>.html has a sibling <name>/ folder, the HTML is
+    # the channel's main chat and the folder's files are its sub-threads.
     guild_dir = SOURCE
-    for forum_dir in sorted(p for p in guild_dir.iterdir() if p.is_dir()):
-        html_files = sorted(forum_dir.glob("*.html"))
-        for f in html_files:
-            data = parse_thread(f, forum_dir.name)
-            slug = f"{slugify(data['forum'])}--{slugify(data['title'])}"
-            # Ensure uniqueness if titles collide
-            base = slug
-            n = 1
-            while any(t["id"] == slug for t in threads):
-                n += 1
-                slug = f"{base}-{n}"
 
-            thread_entry = {
-                "id": slug,
-                "title": data["title"],
-                "forum": data["forum"],
-                "guild": data["guild"] or guild_dir.name,
-                "guild_folder": guild_dir.name,
-                "message_count": len(data["messages"]),
-                "first_msg_id": data["first_msg_id"],
-                "last_msg_id": data["last_msg_id"],
-                "source_file": str(f.relative_to(ROOT)),
-            }
-            threads.append(thread_entry)
+    def emit(f: Path, forum_name: str, channel: str | None, is_channel_main: bool):
+        data = parse_thread(f, forum_name, channel_hint=channel if not is_channel_main else None)
+        slug = f"{slugify(data['forum'])}--{slugify(data['title'])}"
+        if channel and not is_channel_main:
+            slug = f"{slugify(data['forum'])}--{slugify(channel)}--{slugify(data['title'])}"
+        base = slug
+        n = 1
+        while any(t["id"] == slug for t in threads):
+            n += 1
+            slug = f"{base}-{n}"
 
-            # Write full content (HTML snippets) per-thread for on-demand loading
-            per_thread = {
-                "id": slug,
-                "title": data["title"],
-                "forum": data["forum"],
-                "messages": data["messages"],
-            }
-            (CONTENT_OUT / f"{slug}.json").write_text(
-                json.dumps(per_thread, ensure_ascii=False),
-                encoding="utf-8",
+        thread_entry = {
+            "id": slug,
+            "title": data["title"],
+            "forum": data["forum"],
+            "channel": channel,
+            "is_channel_main": is_channel_main,
+            "guild": data["guild"] or guild_dir.name,
+            "guild_folder": guild_dir.name,
+            "message_count": len(data["messages"]),
+            "first_msg_id": data["first_msg_id"],
+            "last_msg_id": data["last_msg_id"],
+            "source_file": str(f.relative_to(ROOT)),
+        }
+        threads.append(thread_entry)
+
+        per_thread = {
+            "id": slug,
+            "title": data["title"],
+            "forum": data["forum"],
+            "messages": data["messages"],
+        }
+        (CONTENT_OUT / f"{slug}.json").write_text(
+            json.dumps(per_thread, ensure_ascii=False),
+            encoding="utf-8",
+        )
+
+        for m in data["messages"]:
+            flat_messages.append(
+                {
+                    "id": m["id"],
+                    "thread": slug,
+                    "author": m["author"],
+                    "author_handle": m["author_handle"],
+                    "user_id": m["user_id"],
+                    "timestamp": m["timestamp"],
+                    "timestamp_short": m["timestamp_short"],
+                    "text": m["text"],
+                }
             )
 
-            # Global search index: strip heavy fields
-            for m in data["messages"]:
-                flat_messages.append(
-                    {
-                        "id": m["id"],
-                        "thread": slug,
-                        "author": m["author"],
-                        "author_handle": m["author_handle"],
-                        "user_id": m["user_id"],
-                        "timestamp": m["timestamp"],
-                        "timestamp_short": m["timestamp_short"],
-                        "text": m["text"],
-                    }
-                )
+            uid = m["user_id"]
+            if uid and uid not in users:
+                users[uid] = {
+                    "id": uid,
+                    "name": m["author"],
+                    "handle": m["author_handle"],
+                    "avatar": m["avatar"],
+                    "message_count": 0,
+                }
+            if uid:
+                users[uid]["message_count"] += 1
 
-                uid = m["user_id"]
-                if uid and uid not in users:
-                    users[uid] = {
-                        "id": uid,
-                        "name": m["author"],
-                        "handle": m["author_handle"],
-                        "avatar": m["avatar"],
-                        "message_count": 0,
-                    }
-                if uid:
-                    users[uid]["message_count"] += 1
+    for forum_dir in sorted(p for p in guild_dir.iterdir() if p.is_dir()):
+        subfolder_stems = {p.name for p in forum_dir.iterdir() if p.is_dir()}
+        for f in sorted(forum_dir.glob("*.html")):
+            is_main = f.stem in subfolder_stems
+            emit(f, forum_dir.name, f.stem if is_main else None, is_main)
+
+        for sub in sorted(p for p in forum_dir.iterdir() if p.is_dir() and p.name in subfolder_stems):
+            for f in sorted(sub.glob("*.html")):
+                emit(f, forum_dir.name, sub.name, is_channel_main=False)
 
     # Order threads chronologically by first message
     threads.sort(key=lambda t: (t["forum"], t["first_msg_id"]))
