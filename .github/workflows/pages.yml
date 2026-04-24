@@ -24,8 +24,18 @@ jobs:
         with:
           python-version: "3.11"
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Node deps
+        run: npm install --no-audit --no-fund
+
       - name: Build data from HTML exports
         run: python3 scripts/build.py
+
+      - name: Build search index
+        run: node scripts/build-index.mjs
 
       - uses: actions/upload-pages-artifact@v3
         with:

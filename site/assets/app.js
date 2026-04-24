@@ -6,6 +6,7 @@
 
 const el = (id) => document.getElementById(id);
 const $content = el("content");
+const $main = el("main");
 const $threadNav = el("thread-nav");
 const $search = el("search");
 const $threadFilter = el("thread-filter");
@@ -16,6 +17,11 @@ const $threadModalTitle = el("thread-modal-title");
 const $threadModalFilter = el("thread-modal-filter");
 const $threadModalList = el("thread-modal-list");
 const $threadModalCount = el("thread-modal-count");
+const $resultsPanel = el("results-panel");
+const $resultsList = el("results-list");
+const $resultsMeta = el("results-meta");
+const $resultsTitle = el("results-title");
+const $resultsClose = el("results-close");
 
 const SIDEBAR_TOP_N = 3;
 const CHANNEL_TOP_N = 3;
@@ -53,14 +59,14 @@ function byListedOrder(list) {
 
 const state = {
   threads: [],
-  messages: [],
   users: [],
+  totalMessages: 0,
   threadById: new Map(),
   userByName: new Map(),
   threadCache: new Map(),
   activeThreadId: null,
   search: null,
-  _messagesIndexed: [],
+  snippets: null,
 };
 
 function setHtml(node, html) {
@@ -79,15 +85,13 @@ function pushHtml(node, html) {
 
 (async function init() {
   try {
-    const [threads, users, messages] = await Promise.all([
+    const [threads, users] = await Promise.all([
       fetch("data/threads.json").then((r) => r.json()),
       fetch("data/users.json").then((r) => r.json()),
-      fetch("data/messages.json").then((r) => r.json()),
     ]);
 
     state.threads = threads;
     state.users = users;
-    state.messages = messages;
     state.threadById = new Map(threads.map((t) => [t.id, t]));
 
     for (const u of users) {
@@ -95,12 +99,13 @@ function pushHtml(node, html) {
       if (u.handle) state.userByName.set(u.handle.toLowerCase(), u);
     }
 
+    state.totalMessages = threads.reduce((s, t) => s + (t.message_count || 0), 0);
+
     renderSidebar(threads);
-    buildSearchIndex(messages);
-    renderStats(threads, users, messages);
+    renderStats(threads, users, state.totalMessages);
 
     $threadCount.textContent = `${threads.length} threads`;
-    $messageCount.textContent = `${messages.length.toLocaleString()} messages`;
+    $messageCount.textContent = `${state.totalMessages.toLocaleString()} messages`;
 
     window.addEventListener("hashchange", routeFromHash);
     routeFromHash();
@@ -351,14 +356,14 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !$threadModal.hidden) closeThreadModal();
 });
 
-function renderStats(threads, users, messages) {
+function renderStats(threads, users, totalMessages) {
   const ul = el("welcome-stats");
   if (!ul) return;
   const topUser = users[0];
   const topThread = threads.slice().sort((a, b) => b.message_count - a.message_count)[0];
   setHtml(ul, `
     <li><strong>${threads.length}</strong> threads archived</li>
-    <li><strong>${messages.length.toLocaleString()}</strong> messages</li>
+    <li><strong>${totalMessages.toLocaleString()}</strong> messages</li>
     <li><strong>${users.length}</strong> unique authors</li>
     <li>Most active user: <strong>${escapeHtml(topUser?.name || "")}</strong> (${topUser?.message_count || 0} msgs)</li>
     <li>Busiest thread: <strong>${escapeHtml(topThread?.title || "")}</strong> (${topThread?.message_count || 0} msgs)</li>
@@ -367,42 +372,62 @@ function renderStats(threads, users, messages) {
 
 // ---------- search ----------
 
-function buildSearchIndex(messages) {
-  const MiniSearch = window.MiniSearch;
-  state.search = new MiniSearch({
-    fields: ["text", "author", "author_handle"],
-    storeFields: ["text", "author", "author_handle", "thread", "timestamp_short", "id"],
-    searchOptions: {
-      boost: { author: 2, author_handle: 2, text: 1 },
-      prefix: true,
-      fuzzy: 0.15,
-      combineWith: "AND",
-    },
-    tokenize: (str) =>
-      String(str)
-        .toLowerCase()
-        .split(/[\s\-.,;:!?/\\<>()\[\]{}"'`|]+/)
-        .filter(Boolean),
-  });
+const SEARCH_CONFIG = {
+  fields: ["text", "author", "author_handle"],
+  storeFields: ["author", "author_handle", "thread", "timestamp_short", "_msgId"],
+  searchOptions: {
+    boost: { author: 2, author_handle: 2, text: 1 },
+    prefix: true,
+    fuzzy: 0.15,
+    combineWith: "AND",
+  },
+  tokenize: (str) =>
+    String(str)
+      .toLowerCase()
+      .split(/[\s\-.,;:!?/\\<>()\[\]{}"'`|]+/)
+      .filter(Boolean),
+};
 
-  state.search.addAll(
-    messages.map((m, idx) => ({
-      id: idx,
-      text: m.text,
-      author: m.author,
-      author_handle: m.author_handle,
-      thread: m.thread,
-      timestamp_short: m.timestamp_short,
-      _msgId: m.id,
-    })),
-  );
-  state._messagesIndexed = messages;
+let searchReadyPromise = null;
+
+function ensureSearchReady() {
+  if (searchReadyPromise) return searchReadyPromise;
+  showSearchLoading();
+  searchReadyPromise = (async () => {
+    const MiniSearch = window.MiniSearch;
+    const [indexJson, snippets] = await Promise.all([
+      fetch("data/search-index.json").then((r) => r.text()),
+      fetch("data/snippets.json").then((r) => r.json()),
+    ]);
+    state.search = MiniSearch.loadJSON(indexJson, SEARCH_CONFIG);
+    state.snippets = snippets;
+  })();
+  searchReadyPromise
+    .then(hideSearchLoading)
+    .catch((err) => {
+      console.error("search load failed", err);
+      searchReadyPromise = null;
+      hideSearchLoading();
+    });
+  return searchReadyPromise;
 }
+
+function showSearchLoading() {
+  $search.classList.add("search-loading");
+}
+function hideSearchLoading() {
+  $search.classList.remove("search-loading");
+}
+
+$search.addEventListener("focus", () => ensureSearchReady());
 
 let searchTimer;
 $search.addEventListener("input", () => {
   clearTimeout(searchTimer);
-  searchTimer = setTimeout(runSearch, 140);
+  searchTimer = setTimeout(async () => {
+    await ensureSearchReady();
+    runSearch();
+  }, 140);
 });
 
 $threadFilter.addEventListener("input", () => {
@@ -454,11 +479,8 @@ function runSearch() {
   const userFilters = new Set(typedUsers);
 
   if (!text && userFilters.size === 0) {
-    if (state.activeThreadId) {
-      renderThread(state.activeThreadId);
-    } else {
-      renderWelcome();
-    }
+    closeResultsPanel({ preserveInput: true });
+    if (!state.activeThreadId) renderWelcome();
     return;
   }
 
@@ -469,20 +491,11 @@ function runSearch() {
     });
   } else {
     results = [];
-    for (let i = 0; i < state._messagesIndexed.length; i++) {
-      const m = state._messagesIndexed[i];
-      if (passesUserFilter({ author: m.author, author_handle: m.author_handle }, userFilters)) {
-        results.push({
-          id: i,
-          text: m.text,
-          author: m.author,
-          author_handle: m.author_handle,
-          thread: m.thread,
-          timestamp_short: m.timestamp_short,
-          _msgId: m.id,
-          score: 0,
-        });
-      }
+    const total = state.search.documentCount;
+    for (let i = 0; i < total; i++) {
+      if (!state.search.has(i)) continue;
+      const r = state.search.getStoredFields(i);
+      if (passesUserFilter(r, userFilters)) results.push(r);
     }
   }
 
@@ -501,8 +514,6 @@ function passesUserFilter(r, userFilters) {
 }
 
 function renderResults(results, { text, userFilters }) {
-  const parts = [];
-  parts.push(`<h2 class="results-title">Search results</h2>`);
   const filters = [];
   if (text) filters.push(`text: <code>${escapeHtml(text)}</code>`);
   if (userFilters.size)
@@ -510,24 +521,25 @@ function renderResults(results, { text, userFilters }) {
       "users: " +
         [...userFilters].map((u) => `<code>${escapeHtml(u)}</code>`).join(", "),
     );
-  parts.push(
-    `<div class="results-meta">${results.length} match${
-      results.length === 1 ? "" : "es"
-    } · ${filters.join(" · ")}</div>`,
+  setHtml(
+    $resultsMeta,
+    `${results.length} match${results.length === 1 ? "" : "es"}${
+      filters.length ? " · " + filters.join(" · ") : ""
+    }`,
   );
 
+  const listParts = [];
   if (!results.length) {
-    parts.push(
-      `<p style="color:#949ba4">No matches. Try a different query, or pick a thread on the left.</p>`,
-    );
+    listParts.push(`<div class="results-empty">No matches. Try a different query.</div>`);
   }
 
   for (const r of results) {
     const thread = state.threadById.get(r.thread);
     const tid = r.thread;
-    const mid = r._msgId || (state._messagesIndexed[r.id] || {}).id;
-    parts.push(`
-      <div class="result" data-thread="${escapeAttr(tid)}" data-msg="${escapeAttr(mid || "")}">
+    const mid = r._msgId;
+    const key = mid ? `${tid}::${mid}` : tid;
+    listParts.push(`
+      <div class="result" data-key="${escapeAttr(key)}" data-thread="${escapeAttr(tid)}" data-msg="${escapeAttr(mid || "")}">
         <div class="result-header">
           <span class="result-thread">${escapeHtml(thread?.forum || "")}  ›  ${escapeHtml(thread?.title || tid)}</span>
           <span>${escapeHtml(r.timestamp_short || "")}</span>
@@ -535,21 +547,45 @@ function renderResults(results, { text, userFilters }) {
         <div class="result-header">
           <span class="result-author">${escapeHtml(r.author || "")}</span>
         </div>
-        <div class="snippet">${renderSnippet(r.text, text)}</div>
+        <div class="snippet">${renderSnippet(state.snippets?.[mid] || "", text)}</div>
       </div>`);
   }
-  setHtml($content, parts.join(""));
+  setHtml($resultsList, listParts.join(""));
 
-  $content.querySelectorAll(".result").forEach((node) => {
+  $resultsList.querySelectorAll(".result").forEach((node) => {
     node.addEventListener("click", () => {
       const tid = node.dataset.thread;
       const mid = node.dataset.msg;
       const hash = mid ? `#/t/${encodeURIComponent(tid)}/m/${mid}` : `#/t/${encodeURIComponent(tid)}`;
+      markActiveResult(tid, mid);
       if (location.hash === hash) routeFromHash();
       else location.hash = hash;
     });
   });
+
+  document.body.classList.add("has-results");
+  $resultsPanel.hidden = false;
 }
+
+function markActiveResult(tid, mid) {
+  const key = mid ? `${tid}::${mid}` : tid;
+  $resultsList.querySelectorAll(".result").forEach((n) => {
+    n.classList.toggle("active", n.dataset.key === key);
+  });
+}
+
+function closeResultsPanel({ preserveInput = false } = {}) {
+  document.body.classList.remove("has-results");
+  $resultsPanel.hidden = true;
+  if (!preserveInput) $search.value = "";
+}
+
+$resultsClose.addEventListener("click", () => closeResultsPanel());
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape") return;
+  if (!$threadModal.hidden) return; // modal has priority
+  if (document.body.classList.contains("has-results")) closeResultsPanel();
+});
 
 function renderSnippet(text, query) {
   if (!text) return "";
@@ -606,7 +642,7 @@ function renderWelcome() {
       <p>Search supports <code>user:handle</code> plus keywords, e.g. <code>user:ripplebiz repeater</code>.</p>
       <ul id="welcome-stats"></ul>
     </div>`);
-  renderStats(state.threads, state.users, state.messages);
+  renderStats(state.threads, state.users, state.totalMessages);
 }
 
 async function loadThread(threadId) {
@@ -650,16 +686,51 @@ async function renderThread(threadId, focusMessageId) {
     });
   });
 
+  document.querySelectorAll(".msg.highlight").forEach((n) => n.classList.remove("highlight"));
+  state.focusLock = null;
+
   if (focusMessageId) {
     const target = document.getElementById(`m-${focusMessageId}`);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (!target) {
+      console.warn("missing message target", focusMessageId, "in thread", threadId);
+    } else {
+      state.focusLock = { threadId, msgId: focusMessageId };
       target.classList.add("highlight");
-      setTimeout(() => target.classList.remove("highlight"), 2500);
+
+      const scroll = () => target.scrollIntoView({ block: "center" });
+      scroll();
+
+      const imgs = Array.from($content.querySelectorAll("img")).filter((i) => !i.complete);
+      const reScroll = () => {
+        if (state.focusLock && state.focusLock.msgId === focusMessageId) scroll();
+      };
+      imgs.forEach((img) => {
+        img.addEventListener("load", reScroll, { once: true });
+        img.addEventListener("error", reScroll, { once: true });
+      });
+
+      const release = () => { state.focusLock = null; };
+      $content.addEventListener("wheel", release, { once: true, passive: true });
+      $content.addEventListener("touchmove", release, { once: true, passive: true });
+      setTimeout(release, 4000);
     }
   } else {
-    window.scrollTo({ top: 0 });
+    state.focusLock = { threadId, bottom: true };
+    const scrollBottom = () => {
+      if (state.focusLock && state.focusLock.bottom) {
+        $content.scrollTop = $content.scrollHeight;
+      }
+    };
+    scrollBottom();
+    // Poll to keep pinning to the bottom as lazy-loaded images pop in and
+    // grow the scroll height. User wheel/touch releases; hard cap at 15s.
+    const interval = setInterval(scrollBottom, 300);
+    const release = () => { state.focusLock = null; clearInterval(interval); };
+    $content.addEventListener("wheel", release, { once: true, passive: true });
+    $content.addEventListener("touchmove", release, { once: true, passive: true });
+    setTimeout(release, 15000);
   }
+  markActiveResult(threadId, focusMessageId);
 }
 
 function renderMessage(m) {
