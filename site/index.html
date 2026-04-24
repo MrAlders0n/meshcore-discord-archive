@@ -45,6 +45,21 @@
       </div>
     </header>
 
+    <div id="thread-modal" class="modal" hidden>
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="thread-modal-title">
+        <div class="modal-header">
+          <h2 id="thread-modal-title"># forum</h2>
+          <button type="button" class="modal-close" data-close aria-label="Close">×</button>
+        </div>
+        <div class="modal-search">
+          <input id="thread-modal-filter" type="text" placeholder="Search threads…" autocomplete="off">
+        </div>
+        <div id="thread-modal-list" class="modal-list"></div>
+        <div class="modal-footer" id="thread-modal-count"></div>
+      </div>
+    </div>
+
     <section id="content" class="content">
       <div class="welcome">
         <h1>MeshCore Discord Archive</h1>
