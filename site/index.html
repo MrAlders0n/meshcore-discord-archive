@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MeshCore Discord Archive</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <aside id="sidebar">
+    <div class="guild">
+      <div class="guild-icon" id="guild-icon">M</div>
+      <div class="guild-meta">
+        <div class="guild-name">MeshCore</div>
+        <div class="guild-sub">Discord Archive</div>
+      </div>
+    </div>
+
+    <div class="sidebar-search">
+      <input id="thread-filter" type="text" placeholder="Filter threads…" autocomplete="off">
+    </div>
+
+    <nav id="thread-nav" class="thread-nav"></nav>
+
+    <div class="sidebar-footer">
+      <span id="thread-count">0 threads</span>
+      · <span id="message-count">0 messages</span>
+    </div>
+  </aside>
+
+  <main id="main">
+    <header class="topbar">
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="Search messages (keyword, phrase, or user:name)"
+               autocomplete="off" spellcheck="false">
+        <div class="search-help">
+          Tip: <code>user:alice</code> filters by author. Combine:
+          <code>user:alice firmware</code>. Quote phrases: <code>"time sync"</code>.
+        </div>
+      </div>
+      <div class="topbar-tools">
+        <select id="user-filter" title="Filter by user">
+          <option value="">All users</option>
+        </select>
+      </div>
+    </header>
+
+    <section id="content" class="content">
+      <div class="welcome">
+        <h1>MeshCore Discord Archive</h1>
+        <p>Pick a thread on the left, or search across all messages above.</p>
+        <p>Search supports <code>user:handle</code> plus keywords, e.g. <code>user:ripplebiz repeater</code>.</p>
+        <ul id="welcome-stats"></ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/minisearch.min.js"></script>
+  <script src="assets/app.js" type="module"></script>
+</body>
+</html>
