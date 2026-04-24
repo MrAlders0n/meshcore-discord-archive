@@ -1,5 +1,27 @@
 [
   {
+    "id": "general-chat--general",
+    "title": "general",
+    "forum": "General Chat",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 24185,
+    "first_msg_id": 1343694192123318293,
+    "last_msg_id": 1455661261768495227,
+    "source_file": "MeshCore/General Chat/general.html"
+  },
+  {
+    "id": "general-chat--development",
+    "title": "development",
+    "forum": "General Chat",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 11456,
+    "first_msg_id": 1391683109828956180,
+    "last_msg_id": 1496806324967702558,
+    "source_file": "MeshCore/General Chat/development.html"
+  },
+  {
     "id": "firmware-development--new-post",
     "title": "New Post",
     "forum": "firmware-development",
@@ -9,6 +31,380 @@
     "first_msg_id": 0,
     "last_msg_id": 0,
     "source_file": "MeshCore/firmware-development/New Post.html"
+  },
+  {
+    "id": "firmware-development--request-for-feature-support-for-the-sx1278-lora-chip",
+    "title": "Request for feature support for the sx1278 Lora chip.",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 0,
+    "first_msg_id": 0,
+    "last_msg_id": 0,
+    "source_file": "MeshCore/firmware-development/Request for feature support for the sx1278 Lora chip..html"
+  },
+  {
+    "id": "firmware-development--usb-trigger-dfu",
+    "title": "USB trigger DFU",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 0,
+    "first_msg_id": 0,
+    "last_msg_id": 0,
+    "source_file": "MeshCore/firmware-development/USB trigger DFU.html"
+  },
+  {
+    "id": "firmware-development--adding-support-for-a-new-sensor-in-the-repeater-firmware-rak12022",
+    "title": "adding support for a new sensor in the Repeater firmware (RAK12022)",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 0,
+    "first_msg_id": 0,
+    "last_msg_id": 0,
+    "source_file": "MeshCore/firmware-development/adding support for a new sensor in the Repeater firmware (RAK12022).html"
+  },
+  {
+    "id": "firmware-development--ui-new-and-pin-user-btn-on-a-xiao-nrf52",
+    "title": "ui-new and PIN_USER_BTN on a Xiao-nrf52",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 0,
+    "first_msg_id": 0,
+    "last_msg_id": 0,
+    "source_file": "MeshCore/firmware-development/ui-new and PIN_USER_BTN on a Xiao-nrf52.html"
+  },
+  {
+    "id": "firmware-development--mqtt-suport-for-extend-the-net",
+    "title": "MQTT suport for extend the net",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 40,
+    "first_msg_id": 1351501777576661045,
+    "last_msg_id": 1459994707294818464,
+    "source_file": "MeshCore/firmware-development/MQTT suport for extend the net.html"
+  },
+  {
+    "id": "firmware-development--t-deck-pro",
+    "title": "T-deck pro",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 38,
+    "first_msg_id": 1363598635945689098,
+    "last_msg_id": 1470547624011497496,
+    "source_file": "MeshCore/firmware-development/T-deck pro.html"
+  },
+  {
+    "id": "firmware-development--limited-stand-alone-functionality-backstop-for-loss-of-connection-to-companion-c",
+    "title": "limited stand-alone functionality backstop for Loss of connection to companion client",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 2,
+    "first_msg_id": 1379897181602971688,
+    "last_msg_id": 1379901332068110397,
+    "source_file": "MeshCore/firmware-development/limited stand-alone functionality backstop for Loss of connection to companion client.html"
+  },
+  {
+    "id": "firmware-development--payload-type-grp-data",
+    "title": "PAYLOAD_TYPE_GRP_DATA",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1380405060315385936,
+    "last_msg_id": 1380405060315385936,
+    "source_file": "MeshCore/firmware-development/PAYLOAD_TYPE_GRP_DATA.html"
+  },
+  {
+    "id": "firmware-development--enhanced-group-communication-via-companion-packet-forwarding",
+    "title": "Enhanced Group Communication via Companion Packet Forwarding",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 35,
+    "first_msg_id": 1404571097248305294,
+    "last_msg_id": 1448473821295284325,
+    "source_file": "MeshCore/firmware-development/Enhanced Group Communication via Companion Packet Forwarding.html"
+  },
+  {
+    "id": "firmware-development--heltec-v3-multi-method-companion-rework",
+    "title": "Heltec V3 Multi-Method Companion Rework",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 5,
+    "first_msg_id": 1430402220838359140,
+    "last_msg_id": 1458126889435795609,
+    "source_file": "MeshCore/firmware-development/Heltec V3 Multi-Method Companion Rework.html"
+  },
+  {
+    "id": "firmware-development--multi-node-or-multi-antenna-repeaters",
+    "title": "Multi-node or multi-antenna repeaters",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 81,
+    "first_msg_id": 1430521315307159552,
+    "last_msg_id": 1443986404592975905,
+    "source_file": "MeshCore/firmware-development/Multi-node or multi-antenna repeaters.html"
+  },
+  {
+    "id": "firmware-development--voice-over-lora",
+    "title": "Voice over Lora",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 13,
+    "first_msg_id": 1430658713357778955,
+    "last_msg_id": 1431147861285933238,
+    "source_file": "MeshCore/firmware-development/Voice over Lora.html"
+  },
+  {
+    "id": "firmware-development--changing-colors-on-the-t114",
+    "title": "Changing colors on the T114",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 3,
+    "first_msg_id": 1438648688187801808,
+    "last_msg_id": 1440785981111402668,
+    "source_file": "MeshCore/firmware-development/Changing colors on the T114.html"
+  },
+  {
+    "id": "firmware-development--taptap-for-t1000e",
+    "title": "TapTap for T1000E",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 13,
+    "first_msg_id": 1439217016488726618,
+    "last_msg_id": 1467740461845450932,
+    "source_file": "MeshCore/firmware-development/TapTap for T1000E.html"
+  },
+  {
+    "id": "firmware-development--feature-request-for-repeaters-list-of-upstream-nodes-easily-enabled-on-and-off",
+    "title": "Feature Request for repeaters. list of upstream nodes easily enabled on and off",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1440782032803201117,
+    "last_msg_id": 1440782032803201117,
+    "source_file": "MeshCore/firmware-development/Feature Request for repeaters.  list of upstream nodes easily enabled on and off.html"
+  },
+  {
+    "id": "firmware-development--feature-request-enable-espnow-bridge-for-companions-who-can-support-it",
+    "title": "feature request. enable espnow bridge for companions who can support it.",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1440784157188948068,
+    "last_msg_id": 1440784157188948068,
+    "source_file": "MeshCore/firmware-development/feature request.  enable espnow bridge for companions who can support it..html"
+  },
+  {
+    "id": "firmware-development--feature-request-battery-protection-for-repeaters",
+    "title": "Feature Request battery protection for repeaters",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 8,
+    "first_msg_id": 1441476174038569211,
+    "last_msg_id": 1444174967175647434,
+    "source_file": "MeshCore/firmware-development/Feature Request  battery protection for repeaters.html"
+  },
+  {
+    "id": "firmware-development--fixing-flood-dynamic-path-discovery-for-dm",
+    "title": "Fixing flood dynamic path discovery for dm",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 2,
+    "first_msg_id": 1441626967370891438,
+    "last_msg_id": 1441629960644198460,
+    "source_file": "MeshCore/firmware-development/Fixing flood dynamic path discovery for dm.html"
+  },
+  {
+    "id": "firmware-development--feature-request-set-retries",
+    "title": "Feature Request - Set retries",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 4,
+    "first_msg_id": 1443418512092692501,
+    "last_msg_id": 1443435870093840516,
+    "source_file": "MeshCore/firmware-development/Feature Request  -  Set retries.html"
+  },
+  {
+    "id": "firmware-development--feature-request-buzzer-vibration-led-notification",
+    "title": "Feature Request: Buzzer, Vibration, LED notification",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 3,
+    "first_msg_id": 1443590710778531952,
+    "last_msg_id": 1450698894311690280,
+    "source_file": "MeshCore/firmware-development/Feature Request_ Buzzer, Vibration, LED notification.html"
+  },
+  {
+    "id": "firmware-development--feature-request-bluetooth-naming",
+    "title": "Feature Request - Bluetooth Naming",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 13,
+    "first_msg_id": 1443846279766474899,
+    "last_msg_id": 1452800885066305536,
+    "source_file": "MeshCore/firmware-development/Feature Request - Bluetooth Naming.html"
+  },
+  {
+    "id": "firmware-development--xiao-wio-ver1-1",
+    "title": "Xiao WIO ver1.1",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 21,
+    "first_msg_id": 1443932866072543353,
+    "last_msg_id": 1455190719668158465,
+    "source_file": "MeshCore/firmware-development/Xiao WIO ver1.1.html"
+  },
+  {
+    "id": "firmware-development--request-fw-to-have-malaysia-919-in-preset",
+    "title": "Request fw to have malaysia 919 in preset",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 4,
+    "first_msg_id": 1444557818022727803,
+    "last_msg_id": 1445089945781010483,
+    "source_file": "MeshCore/firmware-development/Request fw to have malaysia 919 in preset.html"
+  },
+  {
+    "id": "firmware-development--heltec-wifi-lora-esp-32-v1-the-old-one-not-the-tracker",
+    "title": "Heltec wifi lora esp 32 v1 (the old one, not the tracker)",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 3,
+    "first_msg_id": 1444955694225952860,
+    "last_msg_id": 1470150636061593802,
+    "source_file": "MeshCore/firmware-development/Heltec wifi lora esp 32 v1 (the old one, not the tracker).html"
+  },
+  {
+    "id": "firmware-development--mobile-repeater-companion-repeat",
+    "title": "Mobile repeater / companion repeat",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 18,
+    "first_msg_id": 1448461081675694080,
+    "last_msg_id": 1450163876141203630,
+    "source_file": "MeshCore/firmware-development/Mobile repeater _ companion repeat.html"
+  },
+  {
+    "id": "firmware-development--request-to-correct-barometric-pressure-sensor-scale-factor-error",
+    "title": "Request to correct barometric pressure sensor scale factor error",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1448919980811882589,
+    "last_msg_id": 1448919980811882589,
+    "source_file": "MeshCore/firmware-development/Request to correct barometric pressure sensor scale factor error.html"
+  },
+  {
+    "id": "firmware-development--128x32-smoll-oled-screen-support",
+    "title": "128x32 Smoll OLED screen support",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1449347736532029582,
+    "last_msg_id": 1449347736532029582,
+    "source_file": "MeshCore/firmware-development/128x32 Smoll OLED screen support.html"
+  },
+  {
+    "id": "firmware-development--repeater-adverts-only-during-night-setting",
+    "title": "Repeater adverts only during night setting",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 32,
+    "first_msg_id": 1449409080807522396,
+    "last_msg_id": 1468217557046530233,
+    "source_file": "MeshCore/firmware-development/Repeater adverts only during night setting.html"
+  },
+  {
+    "id": "firmware-development--feature-request-repeater-configuration-to-disable-status-leds",
+    "title": "Feature request: Repeater configuration to disable status LEDs",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 3,
+    "first_msg_id": 1450501775051329566,
+    "last_msg_id": 1451130334388424756,
+    "source_file": "MeshCore/firmware-development/Feature request_ Repeater configuration to disable status LEDs.html"
+  },
+  {
+    "id": "firmware-development--add-wifi-for-devices-that-support-it",
+    "title": "Add WiFi for Devices That Support It",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1450517929463644211,
+    "last_msg_id": 1450517929463644211,
+    "source_file": "MeshCore/firmware-development/Add WiFi for Devices That Support It.html"
+  },
+  {
+    "id": "firmware-development--would-be-so-cool-if-we-could-implement-hf-with-meshcore-kind-of-like-reticulum-d",
+    "title": "would be so cool if we could implement hf with meshcore kind of like reticulum dose",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1452524802664300715,
+    "last_msg_id": 1452524802664300715,
+    "source_file": "MeshCore/firmware-development/would be so cool if we could implement hf with meshcore kind of like reticulum dose.html"
+  },
+  {
+    "id": "firmware-development--bug-in-roomserver",
+    "title": "Bug in RoomServer",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 2,
+    "first_msg_id": 1453122096094908510,
+    "last_msg_id": 1453142481318318201,
+    "source_file": "MeshCore/firmware-development/Bug in RoomServer.html"
+  },
+  {
+    "id": "firmware-development--t-beam-supreme-porting",
+    "title": "T-Beam/Supreme Porting",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 2,
+    "first_msg_id": 1453125508861526138,
+    "last_msg_id": 1453141976839884894,
+    "source_file": "MeshCore/firmware-development/T-Beam_Supreme Porting.html"
+  },
+  {
+    "id": "firmware-development--zero-hop-data-transfer",
+    "title": "Zero-hop data transfer?",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 14,
+    "first_msg_id": 1453153596479766611,
+    "last_msg_id": 1454502672177561724,
+    "source_file": "MeshCore/firmware-development/Zero-hop data transfer_.html"
   },
   {
     "id": "firmware-development--firmware-request-for-devices-missing-on-github",
@@ -22,6 +418,50 @@
     "source_file": "MeshCore/firmware-development/Firmware Request for Devices Missing on Github.html"
   },
   {
+    "id": "firmware-development--talk-stick",
+    "title": "Talk Stick?",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 4,
+    "first_msg_id": 1454322798209142785,
+    "last_msg_id": 1454641910819061781,
+    "source_file": "MeshCore/firmware-development/Talk Stick_.html"
+  },
+  {
+    "id": "firmware-development--message-priority-bit",
+    "title": "Message Priority Bit?",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 19,
+    "first_msg_id": 1454323392219189408,
+    "last_msg_id": 1454536888865001503,
+    "source_file": "MeshCore/firmware-development/Message Priority Bit_.html"
+  },
+  {
+    "id": "firmware-development--neighbours-list-50-repeater-limit",
+    "title": "Neighbours list: 50 repeater limit",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 4,
+    "first_msg_id": 1455166451395723336,
+    "last_msg_id": 1455237499403374694,
+    "source_file": "MeshCore/firmware-development/Neighbours list_ 50 repeater limit.html"
+  },
+  {
+    "id": "firmware-development--repeater-operational-schedule",
+    "title": "Repeater operational schedule",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 18,
+    "first_msg_id": 1455386713865195726,
+    "last_msg_id": 1456802150838698162,
+    "source_file": "MeshCore/firmware-development/Repeater operational schedule.html"
+  },
+  {
     "id": "firmware-development--lilygo-t-beam-1w-firmware",
     "title": "Lilygo T-Beam 1w firmware",
     "forum": "firmware-development",
@@ -31,6 +471,39 @@
     "first_msg_id": 1456007156531855465,
     "last_msg_id": 1496911098463649982,
     "source_file": "MeshCore/firmware-development/Lilygo T-Beam 1w firmware.html"
+  },
+  {
+    "id": "firmware-development--seeed-sensecap-solar-gps",
+    "title": "Seeed Sensecap Solar GPS",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 60,
+    "first_msg_id": 1456801943358931004,
+    "last_msg_id": 1484850891705286789,
+    "source_file": "MeshCore/firmware-development/Seeed Sensecap Solar GPS.html"
+  },
+  {
+    "id": "firmware-development--roomserver-user-s-bug",
+    "title": "Roomserver user's bug?",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 2,
+    "first_msg_id": 1457490701389660274,
+    "last_msg_id": 1457753328556707871,
+    "source_file": "MeshCore/firmware-development/Roomserver user's bug_.html"
+  },
+  {
+    "id": "firmware-development--more-efficient-repeating-load-reduction",
+    "title": "More efficient repeating, load reduction",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1458068069414076427,
+    "last_msg_id": 1458068069414076427,
+    "source_file": "MeshCore/firmware-development/More efficient repeating, load reduction.html"
   },
   {
     "id": "firmware-development--automated-gps-time-sync",
@@ -66,6 +539,61 @@
     "source_file": "MeshCore/firmware-development/Companion Relay role.html"
   },
   {
+    "id": "firmware-development--sometimes-i-scare-myself",
+    "title": "Sometimes I Scare Myself",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 2,
+    "first_msg_id": 1458577024187764897,
+    "last_msg_id": 1458644340971802888,
+    "source_file": "MeshCore/firmware-development/Sometimes I Scare Myself.html"
+  },
+  {
+    "id": "firmware-development--wehooper-solarxiao-seeed-xiao-nrf52840-e22900m30-33",
+    "title": "Wehooper SolarXiao (seeed xiao nRF52840 + E22900M30/33",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 7,
+    "first_msg_id": 1459109367088546049,
+    "last_msg_id": 1461177834704732281,
+    "source_file": "MeshCore/firmware-development/Wehooper SolarXiao (seeed xiao nRF52840 + E22900M30_33.html"
+  },
+  {
+    "id": "firmware-development--request-1w-t-beam",
+    "title": "Request: 1W T-Beam",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1459255326661672961,
+    "last_msg_id": 1459255326661672961,
+    "source_file": "MeshCore/firmware-development/Request_ 1W T-Beam.html"
+  },
+  {
+    "id": "firmware-development--fw-request-gat562",
+    "title": "FW request: GAT562",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 13,
+    "first_msg_id": 1459273005749244005,
+    "last_msg_id": 1467458894308835370,
+    "source_file": "MeshCore/firmware-development/FW request_ GAT562.html"
+  },
+  {
+    "id": "firmware-development--remote-repeater-upgrades",
+    "title": "Remote Repeater Upgrades",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 14,
+    "first_msg_id": 1459577448445251584,
+    "last_msg_id": 1480124710720241704,
+    "source_file": "MeshCore/firmware-development/Remote Repeater Upgrades.html"
+  },
+  {
     "id": "firmware-development--meck-t-deck-pro-firmware-ble-wifi-version",
     "title": "Meck T-Deck Pro Firmware BLE & WiFi version",
     "forum": "firmware-development",
@@ -75,6 +603,17 @@
     "first_msg_id": 1460136499390447670,
     "last_msg_id": 1496793363758846012,
     "source_file": "MeshCore/firmware-development/Meck T-Deck Pro Firmware BLE & WiFi version.html"
+  },
+  {
+    "id": "firmware-development--repeater-blocked-contact-list",
+    "title": "Repeater Blocked Contact List",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 54,
+    "first_msg_id": 1460328252869447751,
+    "last_msg_id": 1464733037299372083,
+    "source_file": "MeshCore/firmware-development/Repeater Blocked Contact List.html"
   },
   {
     "id": "firmware-development--firmware-request-muzi-r1-neo",
@@ -88,6 +627,28 @@
     "source_file": "MeshCore/firmware-development/Firmware request - Muzi R1 neo.html"
   },
   {
+    "id": "firmware-development--lilygo-t5s3-e-paper-with-gps",
+    "title": "Lilygo T5S3 E-Paper _with_ GPS",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 14,
+    "first_msg_id": 1461053241876811950,
+    "last_msg_id": 1471454634869653568,
+    "source_file": "MeshCore/firmware-development/Lilygo T5S3 E-Paper _with_ GPS.html"
+  },
+  {
+    "id": "firmware-development--feature-request-flood-ping",
+    "title": "Feature request: Flood Ping",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 8,
+    "first_msg_id": 1461110238114484306,
+    "last_msg_id": 1463239047752319018,
+    "source_file": "MeshCore/firmware-development/Feature request_ Flood Ping.html"
+  },
+  {
     "id": "firmware-development--feature-request-error-correction-code-for-the-whole-packet",
     "title": "Feature request: Error correction code for the whole packet",
     "forum": "firmware-development",
@@ -97,6 +658,61 @@
     "first_msg_id": 1461410927705587957,
     "last_msg_id": 1488542976392302727,
     "source_file": "MeshCore/firmware-development/Feature request_ Error correction code for the whole packet.html"
+  },
+  {
+    "id": "firmware-development--new-fw-released-with-brilliant-ui-format-for-indicator-and-t-deck",
+    "title": "New FW Released With Brilliant UI Format For Indicator and T-Deck",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 24,
+    "first_msg_id": 1461490229201473698,
+    "last_msg_id": 1466952857159864524,
+    "source_file": "MeshCore/firmware-development/New FW Released With Brilliant UI Format For Indicator and T-Deck.html"
+  },
+  {
+    "id": "firmware-development--xiao-s3-wio-add-support-for-l76k-gnss-module-for-seeed-studio-xiao",
+    "title": "Xiao S3 WIO add support for L76K GNSS Module for Seeed Studio XIAO",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1461784371244826736,
+    "last_msg_id": 1461784371244826736,
+    "source_file": "MeshCore/firmware-development/Xiao S3 WIO add support for L76K GNSS Module for Seeed Studio XIAO.html"
+  },
+  {
+    "id": "firmware-development--meshcore-analyzer-observer-without-a-linux-gateway",
+    "title": "MeshCore Analyzer observer without a Linux gateway",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 4,
+    "first_msg_id": 1462044588247351388,
+    "last_msg_id": 1475028162185400412,
+    "source_file": "MeshCore/firmware-development/MeshCore Analyzer observer without a Linux gateway.html"
+  },
+  {
+    "id": "firmware-development--low-power-mode-for-solar-rpt",
+    "title": "Low Power Mode for solar RPT",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1462047431456723121,
+    "last_msg_id": 1462047431456723121,
+    "source_file": "MeshCore/firmware-development/Low Power Mode for solar RPT.html"
+  },
+  {
+    "id": "firmware-development--feature-request-option-for-always-on-gps-after-roboot",
+    "title": "Feature Request: Option for Always On GPS After Roboot",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1462063018559934617,
+    "last_msg_id": 1462063018559934617,
+    "source_file": "MeshCore/firmware-development/Feature Request_ Option for Always On GPS After Roboot.html"
   },
   {
     "id": "firmware-development--fw-request-rak-wismesh-1w-booster-3401-13302",
@@ -121,6 +737,28 @@
     "source_file": "MeshCore/firmware-development/$$$ Willing to pay someone to develop a MeshCore firmware for my LilyGo T-Watch S3.html"
   },
   {
+    "id": "firmware-development--feature-request-in-app-ability-to-hibernate-companion-nodes",
+    "title": "Feature request: in-app ability to hibernate companion nodes",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1462643850831991037,
+    "last_msg_id": 1462643850831991037,
+    "source_file": "MeshCore/firmware-development/Feature request_ in-app ability to hibernate companion nodes.html"
+  },
+  {
+    "id": "firmware-development--firmware-for-esp32-wroom-32d-with-sx1276",
+    "title": "Firmware for esp32 WROOM 32D with SX1276",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 4,
+    "first_msg_id": 1463346364501983342,
+    "last_msg_id": 1492881874102653043,
+    "source_file": "MeshCore/firmware-development/Firmware for esp32 WROOM 32D with SX1276.html"
+  },
+  {
     "id": "firmware-development--heltec-e290-update",
     "title": "Heltec E290 update?",
     "forum": "firmware-development",
@@ -130,6 +768,28 @@
     "first_msg_id": 1464322034275188974,
     "last_msg_id": 1494314658146816100,
     "source_file": "MeshCore/firmware-development/Heltec E290 update_.html"
+  },
+  {
+    "id": "firmware-development--fw-radiomaster-bandit-nano-wip",
+    "title": "FW Radiomaster Bandit Nano WIP",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 9,
+    "first_msg_id": 1464713431809659002,
+    "last_msg_id": 1472669665481195631,
+    "source_file": "MeshCore/firmware-development/FW Radiomaster Bandit Nano WIP.html"
+  },
+  {
+    "id": "firmware-development--circuitmess-chatter2-support",
+    "title": "Circuitmess Chatter2 support?",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 12,
+    "first_msg_id": 1465110947009138851,
+    "last_msg_id": 1478122537786282027,
+    "source_file": "MeshCore/firmware-development/Circuitmess Chatter2 support_.html"
   },
   {
     "id": "firmware-development--fw-request-m5stack-c6l",
@@ -143,6 +803,39 @@
     "source_file": "MeshCore/firmware-development/FW Request_ M5Stack C6L.html"
   },
   {
+    "id": "firmware-development--seeed-sensecap-solar-p1-pro-pwr-button-not-working",
+    "title": "Seeed SenseCap Solar P1 (Pro) PWR Button not working",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 3,
+    "first_msg_id": 1466161538422542560,
+    "last_msg_id": 1466178317899272417,
+    "source_file": "MeshCore/firmware-development/Seeed SenseCap Solar P1 (Pro) PWR Button not working.html"
+  },
+  {
+    "id": "firmware-development--wio-tracker-l1-menu-enter-button-fix",
+    "title": "Wio Tracker L1 Menu/Enter Button Fix",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1466173616860299296,
+    "last_msg_id": 1466173616860299296,
+    "source_file": "MeshCore/firmware-development/Wio Tracker L1 Menu_Enter Button Fix.html"
+  },
+  {
+    "id": "firmware-development--seed-studio-xiao-esp32s3-wio-sx1262-problem-with-build-campanion-and-works-as-re",
+    "title": "Seed Studio XIAO ESP32S3 & Wio-SX1262 problem with build Campanion and works as repeater",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 2,
+    "first_msg_id": 1466192282251165938,
+    "last_msg_id": 1467849195934453885,
+    "source_file": "MeshCore/firmware-development/Seed Studio XIAO ESP32S3 & Wio-SX1262 problem with build Campanion and works as repeater.html"
+  },
+  {
     "id": "firmware-development--power-saving-for-rp2040-repeaters",
     "title": "Power saving for RP2040 repeaters",
     "forum": "firmware-development",
@@ -152,6 +845,28 @@
     "first_msg_id": 1466237100851724573,
     "last_msg_id": 1489705692540440669,
     "source_file": "MeshCore/firmware-development/Power saving for RP2040 repeaters.html"
+  },
+  {
+    "id": "firmware-development--mcterm-firmware-v0-9-7-out-now",
+    "title": "MCTerm Firmware v0.9.7 *out now*",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1466926098725208210,
+    "last_msg_id": 1466926098725208210,
+    "source_file": "MeshCore/firmware-development/MCTerm Firmware v0.9.7 _out now_.html"
+  },
+  {
+    "id": "firmware-development--time-broadcast-receive",
+    "title": "Time Broadcast/Receive",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 3,
+    "first_msg_id": 1466980517516939412,
+    "last_msg_id": 1467048918268379156,
+    "source_file": "MeshCore/firmware-development/Time Broadcast_Receive.html"
   },
   {
     "id": "firmware-development--buzzer-notification-per-channel",
@@ -176,6 +891,138 @@
     "source_file": "MeshCore/firmware-development/FW Request_ Muzi Works Base Duo.html"
   },
   {
+    "id": "firmware-development--rak-wismesh-tag-device-missing-from-platform-io",
+    "title": "RAK WisMesh Tag device missing from Platform.io?",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 2,
+    "first_msg_id": 1467664504958750740,
+    "last_msg_id": 1467742837125808289,
+    "source_file": "MeshCore/firmware-development/RAK WisMesh Tag device missing from Platform.io_.html"
+  },
+  {
+    "id": "firmware-development--powersaving-does-not-work-on-xiao-esp32s3",
+    "title": "Powersaving does not work on Xiao ESP32S3",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 2,
+    "first_msg_id": 1467824324089090242,
+    "last_msg_id": 1468280686275465279,
+    "source_file": "MeshCore/firmware-development/Powersaving does not work on Xiao ESP32S3.html"
+  },
+  {
+    "id": "firmware-development--on-demand-gps-activation-for-remote-telemetry-requests",
+    "title": "On-Demand GPS Activation for Remote Telemetry Requests",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 3,
+    "first_msg_id": 1467937804666274004,
+    "last_msg_id": 1492274014599512279,
+    "source_file": "MeshCore/firmware-development/On-Demand GPS Activation for Remote Telemetry Requests.html"
+  },
+  {
+    "id": "firmware-development--question-for-trace-feature",
+    "title": "Question for Trace feature",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 9,
+    "first_msg_id": 1468945977728696350,
+    "last_msg_id": 1469012051216175296,
+    "source_file": "MeshCore/firmware-development/Question for Trace feature.html"
+  },
+  {
+    "id": "firmware-development--station-g1",
+    "title": "Station G1",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 3,
+    "first_msg_id": 1469824331805622518,
+    "last_msg_id": 1481313314196947097,
+    "source_file": "MeshCore/firmware-development/Station G1.html"
+  },
+  {
+    "id": "firmware-development--heltec-v4",
+    "title": "Heltec v4",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 5,
+    "first_msg_id": 1470083827304235332,
+    "last_msg_id": 1470099542350233663,
+    "source_file": "MeshCore/firmware-development/Heltec v4.html"
+  },
+  {
+    "id": "firmware-development--open-source-ui-with-lvgl",
+    "title": "Open source UI with LVGL",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1470459006324572302,
+    "last_msg_id": 1470459006324572302,
+    "source_file": "MeshCore/firmware-development/Open source UI with LVGL.html"
+  },
+  {
+    "id": "firmware-development--mcterm-firmware-v0-9-8-out-now",
+    "title": "MCTerm Firmware v0.9.8 *out now*",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1471195900935274648,
+    "last_msg_id": 1471195900935274648,
+    "source_file": "MeshCore/firmware-development/MCTerm Firmware v0.9.8 _out now_.html"
+  },
+  {
+    "id": "firmware-development--firmware-woes-for-rak14000-e-paper-screen-adafruit-ssd1680",
+    "title": "Firmware woes for RAK14000 E-Paper screen (Adafruit SSD1680)",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1471304359743848590,
+    "last_msg_id": 1471304359743848590,
+    "source_file": "MeshCore/firmware-development/Firmware woes for RAK14000 E-Paper screen (Adafruit SSD1680).html"
+  },
+  {
+    "id": "firmware-development--stats-broadcast-over",
+    "title": "stats broadcast over #",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 2,
+    "first_msg_id": 1472284269442502949,
+    "last_msg_id": 1472289662692364369,
+    "source_file": "MeshCore/firmware-development/stats broadcast over #.html"
+  },
+  {
+    "id": "firmware-development--fw-request-e-paper-screen-inversion",
+    "title": "FW Request E-Paper Screen Inversion",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1473021614776909886,
+    "last_msg_id": 1473021614776909886,
+    "source_file": "MeshCore/firmware-development/FW Request E-Paper Screen Inversion.html"
+  },
+  {
+    "id": "firmware-development--fw-request-variable-for-battery-type-lipo-or-lifep04",
+    "title": "FW Request: variable for battery type (LiPo or LiFeP04)",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 2,
+    "first_msg_id": 1473048598689218570,
+    "last_msg_id": 1473580999387643989,
+    "source_file": "MeshCore/firmware-development/FW Request_  variable for battery type (LiPo or LiFeP04).html"
+  },
+  {
     "id": "firmware-development--canned-messages",
     "title": "Canned Messages",
     "forum": "firmware-development",
@@ -187,6 +1034,50 @@
     "source_file": "MeshCore/firmware-development/Canned Messages.html"
   },
   {
+    "id": "firmware-development--test-firmware-station-g1",
+    "title": "Test firmware: Station G1",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 5,
+    "first_msg_id": 1474091537922134016,
+    "last_msg_id": 1481313793639452826,
+    "source_file": "MeshCore/firmware-development/Test firmware_ Station G1.html"
+  },
+  {
+    "id": "firmware-development--rp2040-lora-hf-firmware",
+    "title": "RP2040-Lora-HF firmware",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 4,
+    "first_msg_id": 1474453545741717716,
+    "last_msg_id": 1474697739957702656,
+    "source_file": "MeshCore/firmware-development/RP2040-Lora-HF firmware.html"
+  },
+  {
+    "id": "firmware-development--firmware-request-increased-ble-transmit-strength-for-repeaters-when-using-ble-du",
+    "title": "Firmware Request: Increased BLE Transmit Strength for Repeaters when using BLE during OTA",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1474664054747562004,
+    "last_msg_id": 1474664054747562004,
+    "source_file": "MeshCore/firmware-development/Firmware Request_ Increased BLE Transmit Strength for Repeaters when using BLE during OTA.html"
+  },
+  {
+    "id": "firmware-development--raspberry-pi-with-waveshare-lora-hat-running-native-meshcore",
+    "title": "Raspberry PI with Waveshare LoRa HAT running Native MeshCore",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1474881152740233228,
+    "last_msg_id": 1474881152740233228,
+    "source_file": "MeshCore/firmware-development/Raspberry PI with Waveshare LoRa HAT running Native MeshCore.html"
+  },
+  {
     "id": "firmware-development--heltec-v2-rx-problem",
     "title": "Heltec V2 RX problem",
     "forum": "firmware-development",
@@ -196,6 +1087,39 @@
     "first_msg_id": 1476682544958275709,
     "last_msg_id": 1493977764561293312,
     "source_file": "MeshCore/firmware-development/Heltec V2 RX problem.html"
+  },
+  {
+    "id": "firmware-development--fw-request-elecrow-crowpanel-5-0-advance-board-v1-1",
+    "title": "FW Request: Elecrow Crowpanel 5.0 Advance, board v1.1",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 10,
+    "first_msg_id": 1478404348689121382,
+    "last_msg_id": 1483194672187969638,
+    "source_file": "MeshCore/firmware-development/FW Request_ Elecrow Crowpanel 5.0 Advance, board v1.1.html"
+  },
+  {
+    "id": "firmware-development--channel-secret-length-docs-differ-from-implementation",
+    "title": "Channel Secret length docs differ from implementation",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 3,
+    "first_msg_id": 1478705283256680520,
+    "last_msg_id": 1478753256581627914,
+    "source_file": "MeshCore/firmware-development/Channel Secret length docs differ from implementation.html"
+  },
+  {
+    "id": "firmware-development--fw-idea-enable-ability-to-schedule-repeater-adverts-so-they-can-flood-during-low",
+    "title": "FW Idea: Enable ability to schedule repeater adverts so they can flood during low airtime periods",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 3,
+    "first_msg_id": 1478905923606024295,
+    "last_msg_id": 1479525141074415807,
+    "source_file": "MeshCore/firmware-development/FW Idea_ Enable ability to schedule repeater adverts so they can flood during low airtime periods.html"
   },
   {
     "id": "firmware-development--unified-companion-transport-tcp-ble-usb-in-one-firmware-with-runtime-switching-a",
@@ -220,6 +1144,39 @@
     "source_file": "MeshCore/firmware-development/Roomserver expansion.html"
   },
   {
+    "id": "firmware-development--custom-firmware-for-esp32-with-ra-01sh-p",
+    "title": "Custom firmware for ESP32 with Ra-01SH-P",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1480892074759815250,
+    "last_msg_id": 1480892074759815250,
+    "source_file": "MeshCore/firmware-development/Custom firmware for ESP32 with Ra-01SH-P.html"
+  },
+  {
+    "id": "firmware-development--new-observer-firmware-1-14-for-sensecap-solar",
+    "title": "New observer firmware 1.14 for SenseCap Solar ?",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1481319549490954291,
+    "last_msg_id": 1481319549490954291,
+    "source_file": "MeshCore/firmware-development/New observer firmware 1.14 for SenseCap Solar _.html"
+  },
+  {
+    "id": "firmware-development--lilygo-t5-e-paper-s3-pro-no-gps-meck-companion-wifi-ble-firmware",
+    "title": "LilyGo T5 E-Paper S3 Pro (No GPS) Meck Companion Wifi & BLE firmware",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 4,
+    "first_msg_id": 1481638719424430121,
+    "last_msg_id": 1485493736078180564,
+    "source_file": "MeshCore/firmware-development/LilyGo T5 E-Paper S3 Pro (No GPS) Meck Companion Wifi & BLE firmware.html"
+  },
+  {
     "id": "firmware-development--algorithm-to-automatically-adjust-repeater-parameters-to-optimize-to-the-local-m",
     "title": "Algorithm to Automatically Adjust Repeater Parameters to Optimize to the Local Mesh Density",
     "forum": "firmware-development",
@@ -229,6 +1186,17 @@
     "first_msg_id": 1482520833476919427,
     "last_msg_id": 1491601385987510363,
     "source_file": "MeshCore/firmware-development/Algorithm to Automatically Adjust Repeater Parameters to Optimize to the Local Mesh Density.html"
+  },
+  {
+    "id": "firmware-development--canned-message",
+    "title": "Canned Message",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1482854368880361632,
+    "last_msg_id": 1482854368880361632,
+    "source_file": "MeshCore/firmware-development/Canned Message.html"
   },
   {
     "id": "firmware-development--zephcore-playground",
@@ -253,6 +1221,28 @@
     "source_file": "MeshCore/firmware-development/Repeater traffic throttling.html"
   },
   {
+    "id": "firmware-development--hi-dev-gods",
+    "title": "hi dev gods",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1483590730256748656,
+    "last_msg_id": 1483590730256748656,
+    "source_file": "MeshCore/firmware-development/hi  dev gods.html"
+  },
+  {
+    "id": "firmware-development--fw-request-rak-wismesh-tap",
+    "title": "FW request RAK Wismesh tap",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 2,
+    "first_msg_id": 1483935883190079720,
+    "last_msg_id": 1484014123430969434,
+    "source_file": "MeshCore/firmware-development/FW request RAK Wismesh tap.html"
+  },
+  {
     "id": "firmware-development--ota-esp32-dfu",
     "title": "OTA ESP32 DFU",
     "forum": "firmware-development",
@@ -273,6 +1263,17 @@
     "first_msg_id": 1485732060378304624,
     "last_msg_id": 1495891457452806347,
     "source_file": "MeshCore/firmware-development/New t-deck plus firmware (MeshUltra).html"
+  },
+  {
+    "id": "firmware-development--feature-request-per-node-forwarding-denylist-for-repeaters",
+    "title": "**Feature Request: Per-node forwarding denylist for repeaters**",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1486053235612450846,
+    "last_msg_id": 1486053235612450846,
+    "source_file": "MeshCore/firmware-development/__Feature Request_ Per-node forwarding denylist for repeaters__.html"
   },
   {
     "id": "firmware-development--rtc-support-to-reduce-need-for-repeater-clock-sync",
@@ -306,6 +1307,28 @@
     "first_msg_id": 1487937551007223809,
     "last_msg_id": 1487937551007223809,
     "source_file": "MeshCore/firmware-development/Chiyocore ~ rust+esp32 meshcore firmware.html"
+  },
+  {
+    "id": "firmware-development--hi-can-i-ask-firmware-developers-to-add-battery-measuring-for-xiao-nrf52840",
+    "title": "Hi, Can I ask firmware developers to add battery measuring for XIAO nRF52840 ?",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 3,
+    "first_msg_id": 1488488093542645881,
+    "last_msg_id": 1491523701345222727,
+    "source_file": "MeshCore/firmware-development/Hi, Can I ask firmware developers to add battery measuring for XIAO nRF52840 _.html"
+  },
+  {
+    "id": "firmware-development--thinknode-m4",
+    "title": "ThinkNode-M4",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1488852301761216584,
+    "last_msg_id": 1488852301761216584,
+    "source_file": "MeshCore/firmware-development/ThinkNode-M4.html"
   },
   {
     "id": "firmware-development--fw-request-esp32-s3-n16r8-and-dx-lr30-have-the-sx12621",
@@ -374,6 +1397,17 @@
     "source_file": "MeshCore/firmware-development/Etherenet support for RAK.html"
   },
   {
+    "id": "firmware-development--hi-all-i-wish-to-report-a-potential-firmware-bug-with-1-14-1",
+    "title": "Hi all. I wish to report a potential firmware bug with 1.14.1",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1493198004738330694,
+    "last_msg_id": 1493198004738330694,
+    "source_file": "MeshCore/firmware-development/Hi all. I wish to report a potential firmware bug with 1.14.1.html"
+  },
+  {
     "id": "firmware-development--seeed-xiao-esp32-s3-plus-battery-always-0",
     "title": "seeed xiao esp32 s3 plus - battery always 0%",
     "forum": "firmware-development",
@@ -383,6 +1417,17 @@
     "first_msg_id": 1493777459395563650,
     "last_msg_id": 1493870207930863717,
     "source_file": "MeshCore/firmware-development/seeed xiao esp32 s3 plus - battery always 0%.html"
+  },
+  {
+    "id": "firmware-development--uart-bridge-on-the-xiaos3-wio",
+    "title": "UART bridge on the XiaoS3 WIO",
+    "forum": "firmware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1494280371049599087,
+    "last_msg_id": 1494280371049599087,
+    "source_file": "MeshCore/firmware-development/UART bridge on the XiaoS3 WIO.html"
   },
   {
     "id": "firmware-development--is-there-a-flashable-firmware-for-this-sx1262-board-with-a-stm32-board",
@@ -438,5 +1483,346 @@
     "first_msg_id": 1496481170517524533,
     "last_msg_id": 1496539257014194347,
     "source_file": "MeshCore/firmware-development/Firmware Request _ Sending GPS data in specified intervals or query GPS data.html"
+  },
+  {
+    "id": "hardware-development--seeking-help-on-spi-configuration-for-display-1-9-st7789-on-rak4631",
+    "title": "Seeking help on SPI configuration for Display (1.9\" ST7789) on RAK4631",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 0,
+    "first_msg_id": 0,
+    "last_msg_id": 0,
+    "source_file": "MeshCore/hardware-development/Seeking help on SPI configuration for Display (1.9_ ST7789) on RAK4631.html"
+  },
+  {
+    "id": "hardware-development--t-beam-supreme-porting",
+    "title": "T-Beam/Supreme Porting",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 3,
+    "first_msg_id": 1350258755098382367,
+    "last_msg_id": 1350269768392773715,
+    "source_file": "MeshCore/hardware-development/T-Beam_Supreme Porting.html"
+  },
+  {
+    "id": "hardware-development--rp2350-port",
+    "title": "RP2350 Port",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 24,
+    "first_msg_id": 1417504494551568405,
+    "last_msg_id": 1493992657402466425,
+    "source_file": "MeshCore/hardware-development/RP2350 Port.html"
+  },
+  {
+    "id": "hardware-development--3d-printed-cases",
+    "title": "3D printed cases",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 41,
+    "first_msg_id": 1431486809795461131,
+    "last_msg_id": 1487949912929865961,
+    "source_file": "MeshCore/hardware-development/3D printed cases.html"
+  },
+  {
+    "id": "hardware-development--t-motion-can-we-get-some-official-support-for-this",
+    "title": "T-Motion can we get some official support for this",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1448898697877262387,
+    "last_msg_id": 1448898697877262387,
+    "source_file": "MeshCore/hardware-development/T-Motion can we get some official support for this.html"
+  },
+  {
+    "id": "hardware-development--solar-node-custom-open-source-pcb-rak4630",
+    "title": "Solar node custom open source pcb (RAK4630/",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 13,
+    "first_msg_id": 1460479745501167646,
+    "last_msg_id": 1494964739082682398,
+    "source_file": "MeshCore/hardware-development/Solar node custom open source pcb (RAK4630_.html"
+  },
+  {
+    "id": "hardware-development--lilygo-ttgo-t-beam-change-frequency-chip",
+    "title": "LILYGO TTGO T-Beam - Change frequency (chip)",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 3,
+    "first_msg_id": 1461314695376932968,
+    "last_msg_id": 1463851709653717087,
+    "source_file": "MeshCore/hardware-development/LILYGO TTGO T-Beam - Change frequency (chip).html"
+  },
+  {
+    "id": "hardware-development--heltec-v4-tft-touchscreen",
+    "title": "Heltec v4 tft touchscreen",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 13,
+    "first_msg_id": 1477321200047755325,
+    "last_msg_id": 1483012973675942082,
+    "source_file": "MeshCore/hardware-development/Heltec v4  tft touchscreen.html"
+  },
+  {
+    "id": "hardware-development--meshnode-poe-mesh-transmitter-with-1w-sx1262-transceiver-outdoor-housing-n-type-",
+    "title": "MeshNode - POE Mesh Transmitter with 1W Sx1262 Transceiver, Outdoor Housing, N Type and Ethernet!",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 96,
+    "first_msg_id": 1480200180425949284,
+    "last_msg_id": 1493453837573554176,
+    "source_file": "MeshCore/hardware-development/MeshNode - POE Mesh Transmitter with 1W Sx1262 Transceiver, Outdoor Housing, N Type and Ethernet!.html"
+  },
+  {
+    "id": "hardware-development--new-post",
+    "title": "New Post",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1481300443702493304,
+    "last_msg_id": 1481300443702493304,
+    "source_file": "MeshCore/hardware-development/New Post.html"
+  },
+  {
+    "id": "hardware-development--cardkb",
+    "title": "cardKB",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 4,
+    "first_msg_id": 1482870371676983366,
+    "last_msg_id": 1483932316278722675,
+    "source_file": "MeshCore/hardware-development/cardKB.html"
+  },
+  {
+    "id": "hardware-development--seeking-help-heltec-v4-question",
+    "title": "Seeking help ... Heltec V4 question",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 9,
+    "first_msg_id": 1483605761677332602,
+    "last_msg_id": 1485300858538164305,
+    "source_file": "MeshCore/hardware-development/Seeking help ... Heltec V4 question.html"
+  },
+  {
+    "id": "hardware-development--heltec-v4-gpio",
+    "title": "Heltec V4 GPIO",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 4,
+    "first_msg_id": 1483610265420304395,
+    "last_msg_id": 1495502302423941272,
+    "source_file": "MeshCore/hardware-development/Heltec V4 GPIO.html"
+  },
+  {
+    "id": "hardware-development--new-lora-phone-project",
+    "title": "New LoRa 'Phone' project",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 40,
+    "first_msg_id": 1484049105348071556,
+    "last_msg_id": 1488947322405650725,
+    "source_file": "MeshCore/hardware-development/New LoRa 'Phone' project.html"
+  },
+  {
+    "id": "hardware-development--sending-problems-with-heltec-v4",
+    "title": "Sending problems with Heltec V4",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 5,
+    "first_msg_id": 1485259176266432512,
+    "last_msg_id": 1486103388159737977,
+    "source_file": "MeshCore/hardware-development/Sending problems with Heltec V4.html"
+  },
+  {
+    "id": "hardware-development--diy-meshcore-raspberry-pi-pico-and-sx1262",
+    "title": "DIY meshcore raspberry pi pico and sx1262",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1485702067212259490,
+    "last_msg_id": 1485702067212259490,
+    "source_file": "MeshCore/hardware-development/DIY meshcore  raspberry pi pico and sx1262.html"
+  },
+  {
+    "id": "hardware-development--2nd-mcu-as-sensor-board",
+    "title": "2nd mcu as sensor board?",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 4,
+    "first_msg_id": 1486223076533473301,
+    "last_msg_id": 1486426801684349029,
+    "source_file": "MeshCore/hardware-development/2nd mcu as sensor board_.html"
+  },
+  {
+    "id": "hardware-development--lowmesh-outdoor-poe-node",
+    "title": "LowMesh™ Outdoor PoE Node",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 4,
+    "first_msg_id": 1486944317485481984,
+    "last_msg_id": 1487164125053325414,
+    "source_file": "MeshCore/hardware-development/LowMesh™ Outdoor PoE Node.html"
+  },
+  {
+    "id": "hardware-development--lowmesh-pocket-ranger-portable-mesh-tracker-node",
+    "title": "LowMesh™ Pocket-Ranger | Portable Mesh Tracker Node",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 17,
+    "first_msg_id": 1486944468241481839,
+    "last_msg_id": 1487330438115496016,
+    "source_file": "MeshCore/hardware-development/LowMesh™ Pocket-Ranger _ Portable Mesh Tracker Node.html"
+  },
+  {
+    "id": "hardware-development--seeking-good-oled-display-to-use-with-meshcore",
+    "title": "Seeking good OLED display to use with MeshCore",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 5,
+    "first_msg_id": 1493672156662464552,
+    "last_msg_id": 1493693932880658485,
+    "source_file": "MeshCore/hardware-development/Seeking good OLED display to use with MeshCore.html"
+  },
+  {
+    "id": "hardware-development--zindello-industries-ultrapeater-1w-pymc-repeater",
+    "title": "Zindello Industries Ultrapeater - 1W pyMC repeater",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 23,
+    "first_msg_id": 1494079990159904838,
+    "last_msg_id": 1496794048739020850,
+    "source_file": "MeshCore/hardware-development/Zindello Industries Ultrapeater - 1W pyMC repeater.html"
+  },
+  {
+    "id": "hardware-development--magnetic-post-clamphas-anyone-designed-a-magnetic-quick-fix-temporary-magnetic-m",
+    "title": "Magnetic post clampHas anyone designed a magnetic quick fix / temporary magnetic mount.",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 6,
+    "first_msg_id": 1495120299396436058,
+    "last_msg_id": 1496131721685500095,
+    "source_file": "MeshCore/hardware-development/Magnetic post clampHas anyone designed a magnetic quick fix _ temporary magnetic mount..html"
+  },
+  {
+    "id": "hardware-development--esp32c3-mini-and-sx1262",
+    "title": "Esp32c3 mini and SX1262",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1,
+    "first_msg_id": 1495356227507716146,
+    "last_msg_id": 1495356227507716146,
+    "source_file": "MeshCore/hardware-development/Esp32c3 mini and SX1262.html"
+  },
+  {
+    "id": "hardware-development--meshlet-v2-compact-versatile-rp2350-node",
+    "title": "Meshlet V2 - Compact & Versatile RP2350 Node",
+    "forum": "hardware-development",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 15,
+    "first_msg_id": 1496712032089538621,
+    "last_msg_id": 1496932192876499066,
+    "source_file": "MeshCore/hardware-development/Meshlet V2 - Compact & Versatile RP2350 Node.html"
+  },
+  {
+    "id": "regional-channels--pacific-northwest-usa",
+    "title": "Pacific Northwest USA",
+    "forum": "regional-channels",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1741,
+    "first_msg_id": 1343714078748708976,
+    "last_msg_id": 1496939393368330271,
+    "source_file": "MeshCore/regional-channels/Pacific Northwest USA.html"
+  },
+  {
+    "id": "regional-channels--new-zealand-wellington",
+    "title": "New Zealand -Wellington",
+    "forum": "regional-channels",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 302,
+    "first_msg_id": 1349569325996052490,
+    "last_msg_id": 1497018724505620650,
+    "source_file": "MeshCore/regional-channels/New Zealand -Wellington.html"
+  },
+  {
+    "id": "regional-channels--united-kingdom-east-of-england",
+    "title": "United Kingdom - East Of England",
+    "forum": "regional-channels",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 4252,
+    "first_msg_id": 1354384185200087111,
+    "last_msg_id": 1497005913100521523,
+    "source_file": "MeshCore/regional-channels/United Kingdom - East Of England.html"
+  },
+  {
+    "id": "regional-channels--kirkcaldy-fife-scotland",
+    "title": "Kirkcaldy, Fife,Scotland.",
+    "forum": "regional-channels",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 72,
+    "first_msg_id": 1391951389801840671,
+    "last_msg_id": 1497023463121092628,
+    "source_file": "MeshCore/regional-channels/Kirkcaldy, Fife,Scotland..html"
+  },
+  {
+    "id": "regional-channels--uk-merseyside-manchester-cheshire-plain",
+    "title": "UK - Merseyside / Manchester / Cheshire Plain",
+    "forum": "regional-channels",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 1635,
+    "first_msg_id": 1398964316354510950,
+    "last_msg_id": 1430135009007767694,
+    "source_file": "MeshCore/regional-channels/UK - Merseyside _ Manchester _ Cheshire Plain.html"
+  },
+  {
+    "id": "regional-channels--west-coast-scotland",
+    "title": "West Coast Scotland",
+    "forum": "regional-channels",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 72,
+    "first_msg_id": 1445125837039865876,
+    "last_msg_id": 1497023529282179193,
+    "source_file": "MeshCore/regional-channels/West Coast Scotland.html"
+  },
+  {
+    "id": "regional-channels--central-north-carolina",
+    "title": "Central North Carolina",
+    "forum": "regional-channels",
+    "guild": "MeshCore",
+    "guild_folder": "MeshCore",
+    "message_count": 26,
+    "first_msg_id": 1462961873656746024,
+    "last_msg_id": 1496977982508765345,
+    "source_file": "MeshCore/regional-channels/Central North Carolina.html"
   }
 ]

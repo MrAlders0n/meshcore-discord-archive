@@ -250,21 +250,24 @@ _PREAMBLE_ENTRIES_RE = re.compile(
 )
 
 
-def parse_thread(file_path: Path) -> dict:
+def parse_thread(file_path: Path, forum_hint: str) -> dict:
     raw = file_path.read_text(encoding="utf-8", errors="replace")
     entries = _PREAMBLE_ENTRIES_RE.findall(raw)
     guild = html.unescape(entries[0]).strip() if entries else ""
     crumb = html.unescape(entries[1]).strip() if len(entries) > 1 else ""
-    # crumb looks like "📚 Forums / firmware-development / Thread Title"
-    crumb_parts = [p.strip() for p in crumb.split(" / ")]
-    if len(crumb_parts) >= 3:
-        forum = crumb_parts[-2]
-        title = crumb_parts[-1]
-    elif len(crumb_parts) == 2:
-        forum = crumb_parts[0]
-        title = crumb_parts[1]
+    # crumb looks like "📚 Forums / <forum> / <title>", but title may contain " / "
+    # so use the folder name as the forum and take everything after it as title.
+    forum = forum_hint
+    title = ""
+    marker = f" / {forum} / "
+    idx = crumb.find(marker)
+    if idx >= 0:
+        title = crumb[idx + len(marker):].strip()
     else:
-        forum = "general"
+        # fallbacks: trailing segment of the crumb, else filename stem
+        parts = [p.strip() for p in crumb.split(" / ")]
+        title = parts[-1] if parts else file_path.stem
+    if not title:
         title = file_path.stem
 
     # Slice from <div class="chatlog"> onward to only parse messages, not the header
@@ -317,7 +320,7 @@ def main() -> int:
     for forum_dir in sorted(p for p in guild_dir.iterdir() if p.is_dir()):
         html_files = sorted(forum_dir.glob("*.html"))
         for f in html_files:
-            data = parse_thread(f)
+            data = parse_thread(f, forum_dir.name)
             slug = f"{slugify(data['forum'])}--{slugify(data['title'])}"
             # Ensure uniqueness if titles collide
             base = slug
