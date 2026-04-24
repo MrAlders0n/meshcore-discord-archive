@@ -191,10 +191,6 @@ body {
   background: #313338;
   border-bottom: 1px solid #1e1f22;
   padding: 12px 20px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
-  align-items: center;
 }
 .search-wrap { position: relative; }
 #search {
@@ -220,17 +216,6 @@ body {
   color: #dcddde;
   font-size: 11px;
 }
-.topbar-tools select {
-  background: #1e1f22;
-  color: #dcddde;
-  border: 1px solid #1e1f22;
-  border-radius: 8px;
-  padding: 9px 10px;
-  font: inherit;
-  outline: none;
-  min-width: 180px;
-}
-
 .content {
   flex: 1;
   padding: 20px 28px 60px;
@@ -554,5 +539,4 @@ body.modal-open { overflow: hidden; }
 @media (max-width: 820px) {
   body { grid-template-columns: 1fr; }
   #sidebar { position: relative; height: auto; max-height: 300px; }
-  .topbar { grid-template-columns: 1fr; }
 }

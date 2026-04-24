@@ -8,7 +8,6 @@ const el = (id) => document.getElementById(id);
 const $content = el("content");
 const $threadNav = el("thread-nav");
 const $search = el("search");
-const $userFilter = el("user-filter");
 const $threadFilter = el("thread-filter");
 const $threadCount = el("thread-count");
 const $messageCount = el("message-count");
@@ -18,8 +17,39 @@ const $threadModalFilter = el("thread-modal-filter");
 const $threadModalList = el("thread-modal-list");
 const $threadModalCount = el("thread-modal-count");
 
-const SIDEBAR_TOP_N = 10;
+const SIDEBAR_TOP_N = 3;
 const CHANNEL_TOP_N = 3;
+
+const FORUM_ORDER = [
+  "General Chat",
+  "software-development",
+  "firmware-development",
+  "hardware-development",
+  "regional-channels",
+];
+
+const CHANNEL_ORDER = [
+  "general",
+  "troubleshooting",
+  "development",
+  "meshcore-app",
+  "ripple-gui",
+  "meshos",
+  "hardware",
+  "node-builds-antennas",
+  "self-promotion",
+];
+
+function byListedOrder(list) {
+  return (a, b) => {
+    const ai = list.indexOf(a);
+    const bi = list.indexOf(b);
+    if (ai === -1 && bi === -1) return a.localeCompare(b);
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  };
+}
 
 const state = {
   threads: [],
@@ -66,7 +96,6 @@ function pushHtml(node, html) {
     }
 
     renderSidebar(threads);
-    renderUserFilter(users);
     buildSearchIndex(messages);
     renderStats(threads, users, messages);
 
@@ -91,7 +120,10 @@ function renderSidebar(threads) {
   }
 
   const frag = document.createDocumentFragment();
-  for (const [forum, list] of byForum) {
+  const orderedForums = Array.from(byForum.entries()).sort(([a], [b]) =>
+    byListedOrder(FORUM_ORDER)(a, b),
+  );
+  for (const [forum, list] of orderedForums) {
     const group = document.createElement("div");
     group.className = "forum-group";
     group.dataset.forum = forum;
@@ -132,13 +164,9 @@ function renderSidebar(threads) {
     header.addEventListener("click", () => openThreadModal(forum));
     group.appendChild(header);
 
-    const sortedChannels = Array.from(channelMains.entries()).sort((a, b) => {
-      const aKids = channelChildren.get(a[0]) || [];
-      const bKids = channelChildren.get(b[0]) || [];
-      const aRecent = aKids.slice().sort(byLastMsgDesc)[0] || a[1];
-      const bRecent = bKids.slice().sort(byLastMsgDesc)[0] || b[1];
-      return byLastMsgDesc(aRecent, bRecent);
-    });
+    const sortedChannels = Array.from(channelMains.entries()).sort(([a], [b]) =>
+      byListedOrder(CHANNEL_ORDER)(a, b),
+    );
 
     for (const [channel, main] of sortedChannels) {
       group.appendChild(renderChannelBlock(forum, channel, main, channelChildren.get(channel) || []));
@@ -323,18 +351,6 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !$threadModal.hidden) closeThreadModal();
 });
 
-function renderUserFilter(users) {
-  const sorted = users.slice().sort((a, b) => a.name.localeCompare(b.name));
-  const frag = document.createDocumentFragment();
-  for (const u of sorted) {
-    const opt = document.createElement("option");
-    opt.value = u.handle || u.name;
-    opt.textContent = `${u.name} (${u.message_count})`;
-    frag.appendChild(opt);
-  }
-  $userFilter.appendChild(frag);
-}
-
 function renderStats(threads, users, messages) {
   const ul = el("welcome-stats");
   if (!ul) return;
@@ -388,7 +404,6 @@ $search.addEventListener("input", () => {
   clearTimeout(searchTimer);
   searchTimer = setTimeout(runSearch, 140);
 });
-$userFilter.addEventListener("change", runSearch);
 
 $threadFilter.addEventListener("input", () => {
   const q = $threadFilter.value.toLowerCase().trim();
@@ -435,11 +450,8 @@ function parseQuery(raw) {
 
 function runSearch() {
   const raw = $search.value.trim();
-  const dropdownUser = $userFilter.value.trim().toLowerCase();
-
   const { users: typedUsers, text } = parseQuery(raw);
   const userFilters = new Set(typedUsers);
-  if (dropdownUser) userFilters.add(dropdownUser);
 
   if (!text && userFilters.size === 0) {
     if (state.activeThreadId) {
