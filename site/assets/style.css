@@ -52,6 +52,14 @@ body.has-results { grid-template-columns: 280px 1fr 360px; }
 }
 .guild-name { font-weight: 700; color: #fff; }
 .guild-sub  { color: #949ba4; font-size: 12px; }
+.guild-repo {
+  display: inline-block;
+  margin-top: 2px;
+  color: #949ba4;
+  font-size: 11px;
+  text-decoration: none;
+}
+.guild-repo:hover { color: #dbdee1; text-decoration: underline; }
 
 .sidebar-search {
   padding: 10px 12px;
