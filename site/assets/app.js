@@ -22,6 +22,8 @@ const $resultsList = el("results-list");
 const $resultsMeta = el("results-meta");
 const $resultsTitle = el("results-title");
 const $resultsClose = el("results-close");
+const $sidebarToggle = el("sidebar-toggle");
+const $sidebarBackdrop = el("sidebar-backdrop");
 
 const SIDEBAR_TOP_N = 3;
 const CHANNEL_TOP_N = 3;
@@ -584,7 +586,30 @@ $resultsClose.addEventListener("click", () => closeResultsPanel());
 document.addEventListener("keydown", (e) => {
   if (e.key !== "Escape") return;
   if (!$threadModal.hidden) return; // modal has priority
+  if (document.body.classList.contains("sidebar-open")) {
+    closeSidebar();
+    return;
+  }
   if (document.body.classList.contains("has-results")) closeResultsPanel();
+});
+
+function openSidebar() {
+  document.body.classList.add("sidebar-open");
+  $sidebarToggle.setAttribute("aria-expanded", "true");
+}
+function closeSidebar() {
+  document.body.classList.remove("sidebar-open");
+  $sidebarToggle.setAttribute("aria-expanded", "false");
+}
+$sidebarToggle.addEventListener("click", () => {
+  document.body.classList.contains("sidebar-open") ? closeSidebar() : openSidebar();
+});
+$sidebarBackdrop.addEventListener("click", closeSidebar);
+// Auto-close the drawer when a thread/channel link is tapped on mobile.
+$threadNav.addEventListener("click", (e) => {
+  if (e.target.closest(".thread-link") || e.target.closest(".channel-header")) {
+    if (window.matchMedia("(max-width: 820px)").matches) closeSidebar();
+  }
 });
 
 function renderSnippet(text, query) {
